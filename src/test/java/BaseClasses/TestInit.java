@@ -1,7 +1,9 @@
 package BaseClasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -31,5 +33,9 @@ public class TestInit {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void scrollToElement(WebElement webElement) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", webElement);
     }
 }
